@@ -93,14 +93,4 @@ public class EmployeeController {
 		return ResponseEntity.ok(response);
 	
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
