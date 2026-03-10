@@ -1,7 +1,4 @@
 package com.example.demo.adminModel;
-
-
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -54,9 +51,5 @@ public class adminModel {
 	}
 	public void setAdminPassword(String adminPassword) {
 		this.adminPassword = adminPassword;
-	}
-	
-	
-	
-	
+	}	
 }
