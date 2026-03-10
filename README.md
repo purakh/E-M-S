@@ -1,61 +1,206 @@
-Full Stack Employee Management System – Angular, Spring Boot & MySQL
+# Full Stack Employee Management System
 
-Employee Management System (EMS) is a full-stack web application developed to make employee data handling simpler and more optimized in an organization. It offers a methodical approach to adding, handling, and maintaining employee information via an interactive user interface and a robust backend.
+**Angular | Spring Boot | MySQL**
 
-Tech Stack:
+## Overview
 
-Backend:
+The **Employee Management System (EMS)** is a full-stack web application designed to simplify the management of employee data within an organization. It provides administrators with a structured interface to perform essential operations such as creating, viewing, updating, and deleting employee records.
 
-Spring Boot: A light, yet highly capable Java framework that drives the server-side logic and API layer. It provides scalability, modularity, and effortless integration with databases.
+The application follows a **client–server architecture**, where the Angular frontend communicates with a Spring Boot backend through RESTful APIs, and data is stored in a MySQL database.
 
-MySQL: Relational database management system employed to store and manage employee records securely with excellent data consistency.
+The goal of this project is to demonstrate a scalable full-stack architecture using modern development practices and technologies.
 
-Frontend:
+---
 
-Angular: Advanced client-side framework providing a responsive, component-based, and interactive user interface.
+# Tech Stack
 
-Features Overview :
+## Backend
 
-(Home Page): Serves as the main entry point with fast access and uncluttered overview of system operations.
+* **Java**
+* **Spring Boot** – Handles server-side business logic and REST APIs
+* **Spring Data JPA** – Simplifies database interactions
+* **MySQL** – Relational database for persistent storage
 
-<img src="Screenshots/Screenshot1.png" alt="Employee List" width="600"/>
+## Frontend
 
-Employee Directory:
+* **Angular** – Component-based frontend framework
+* **TypeScript**
+* **HTML / CSS**
 
-<img src="Screenshots/Screenshot2.png" alt="Employee List" width="600"/>
+---
 
-Produces an entire list of employees. Data can be searched, filtered, and sorted for easy access.
+# Architecture
 
-Add New Employee:
+The system follows a **three-tier architecture**:
 
-<img src="Screenshots/Screenshot3.png" alt="Employee List" width="600"/>
+1. **Presentation Layer (Angular)**
+   Responsible for rendering UI components and interacting with backend APIs.
 
-Features a form with validation rules to record new employee information correctly.
+2. **Application Layer (Spring Boot)**
+   Contains business logic, service classes, and REST controllers.
 
-CRUD Operations
+3. **Data Layer (MySQL)**
+   Stores employee information and ensures data consistency.
 
-Execute basic operations like employee record creation, viewing, editing, and deletion.
+```
+Angular Frontend
+        |
+        | REST API
+        v
+Spring Boot Backend
+        |
+        | JPA / Hibernate
+        v
+MySQL Database
+```
 
-Validation System
+---
 
-Maintains proper data entry so that records are consistent and free of errors.
+# Features
 
-⚙️ Backend :
+## 1. Employee Directory
 
-Executes business logic, processes requests, and communicates with the database.
+Displays a complete list of employees stored in the system.
 
-RESTful APIs designed with Spring Boot ensure seamless client-server communication.
+* View employee details
+* Organized table structure
+* Easy navigation
 
-Is optimized for maintainability and scalability to match organizational growth requirements.
+<img src="Screenshots/Screenshot2.png" alt="Employee Directory" width="600"/>
 
-Frontend:
+---
 
-Angular drives an uncluttered, modular interface with reusable components.
+## 2. Add Employee
 
-Two-way data binding enables real-time updates.
+Provides a form interface to add new employees to the system.
 
-Responsive design makes it compatible on any device.
+* Input validation
+* Structured form fields
+* Real-time feedback
 
-Conclusion:
+<img src="Screenshots/Screenshot3.png" alt="Add Employee" width="600"/>
 
-The Employee Management System is an end-to-end solution for managing workforce information in an efficient way. Through the use of Spring Boot, Angular, and MySQL, the system offers a safe, efficient, and user-friendly interface that can grow with organizational needs.
+---
+
+## 3. CRUD Operations
+
+Supports complete employee lifecycle management.
+
+* **Create** – Add new employee records
+* **Read** – View employee details
+* **Update** – Modify existing records
+* **Delete** – Remove employees from the system
+
+---
+
+## 4. Validation System
+
+Ensures data integrity by validating user inputs before submission.
+
+Examples include:
+
+* Required fields
+* Data format validation
+* Preventing incomplete records
+
+---
+
+## 5. Home Page
+
+Acts as the primary entry point for the system and provides navigation to key features.
+
+<img src="Screenshots/Screenshot1.png" alt="Home Page" width="600"/>
+
+---
+
+# Backend Implementation
+
+The backend is implemented using **Spring Boot** and exposes REST APIs for the frontend application.
+
+Key responsibilities include:
+
+* Handling HTTP requests
+* Processing business logic
+* Managing database transactions
+* Providing structured API responses
+
+Spring Data JPA is used to simplify repository and database operations.
+
+---
+
+# Frontend Implementation
+
+The frontend is built with **Angular** and follows a modular architecture.
+
+Key characteristics:
+
+* Component-based UI
+* Reusable services
+* Two-way data binding
+* Responsive layout
+
+The frontend communicates with the backend through HTTP services that consume REST endpoints.
+
+---
+
+# Project Setup
+
+## Prerequisites
+
+Ensure the following are installed:
+
+* Java 17+
+* Node.js
+* Angular CLI
+* MySQL
+* Maven
+
+---
+
+## Backend Setup
+
+```
+cd backend
+mvn clean install
+mvn spring-boot:run
+```
+
+The backend server will start at:
+
+```
+http://localhost:8080
+```
+
+---
+
+## Frontend Setup
+
+```
+cd frontend
+npm install
+ng serve
+```
+
+The frontend application will run at:
+
+```
+http://localhost:4200
+```
+
+---
+
+# Future Improvements
+
+Potential enhancements include:
+
+* Authentication and role-based access control
+* Pagination and advanced search
+* Employee profile management
+* API documentation with Swagger
+* Docker-based deployment
+
+---
+
+# Conclusion
+
+The Employee Management System demonstrates a practical implementation of a **modern full-stack application** using Angular, Spring Boot, and MySQL. The architecture supports maintainability, scalability, and clear separation of concerns, making it suitable as a foundation for enterprise workforce management systems.
