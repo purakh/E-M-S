@@ -1,60 +1,94 @@
-<br>
-<br>
-<!-- <h1>Employee List</h1> -->
+<div class="dashboard">
 
-<div class="container">
+  <div class="header">
+    <h1>Employee Management</h1>
+    <p>Manage and monitor employee records</p>
+  </div>
 
-    <div >
-        <form (ngSubmit)="goToEmployee()" >
-            <div class="form-group col-md-6 inline ">
-                
-                <input  [(ngModel)]="EnteredID" type="text" class="form-control" id="id" name="id" placeholder="Search by ID">
-                <button class="btn btn-secondary " type="submit">Search</button>
-            </div>
-        </form>
+  <!-- Search -->
+  <div class="search-section">
 
-    </div>
-    <br>
-    <br>
-<div>
-<table style="margin-bottom: 50px;" class=" table table-responsive table-striped  border-dark">
+    <form (ngSubmit)="searchEmployee()" class="search-form">
 
-    <thead class="table-dark ">
+      <input
+        [(ngModel)]="searchTerm"
+        name="search"
+        type="text"
+        placeholder="Search employee by ID or Name..."
+      />
+
+      <button type="submit">
+        🔍 Search
+      </button>
+
+    </form>
+
+  </div>
+
+  <!-- Table -->
+  <div class="table-container">
+
+    <table class="employee-table">
+
+      <thead>
         <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <!-- <th>Salary</th> -->
-            <th>Department</th>
-            <th>Designation</th>
-            <!-- <th>Joining Date</th> -->
-            <th>Actions</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Designation</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let employee of employees">
+
+          <td>#{{employee.id}}</td>
+          <td>{{employee.fname}} {{employee.lname}}</td>
+          <td>{{employee.email}}</td>
+
+          <td>
+            <span class="badge dept">
+              {{employee.department}}
+            </span>
+          </td>
+
+          <td>
+            <span class="badge role">
+              {{employee.designation}}
+            </span>
+          </td>
+
+          <td class="actions">
+
+            <button
+            class="btn update"
+            (click)="updateEmployee(employee.id)">
+            ✏ Update
+            </button>
+
+            <button
+            class="btn delete"
+            (click)="deleteEmployee(employee.id)">
+            🗑 Delete
+            </button>
+
+            <button
+            class="btn view"
+            (click)="detailsOfEmployee(employee.id)">
+            👁 View
+            </button>
+
+          </td>
+
         </tr>
 
-    </thead> 
+      </tbody>
 
+    </table>
 
-    <tbody>
-        <tr *ngFor = "let employee of employees">
-            <td>{{employee.id}}</td>
-            <td>{{employee.fname}}</td>
-            <td>{{employee.lname}}</td>
-            <td>{{employee.email}}</td>
-            <!-- <td>{{employee.salary}}</td> -->
-            <td>{{employee.department}}</td>
-            <td>{{employee.designation}}</td>
-            <!-- <td>{{employee.joiningDate}}</td> -->
-            <td>
-                <button (click) = "updateEmployee(employee.id)" class = "btn  btn-secondary btn-sm"> Update</button>
-                <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger btn-sm" style="margin-left: 10px"> Delete</button>
-                <button (click) = "detailsOfEmployee(employee.id)" class = "btn btn-success btn-sm " style="margin-left: 10px"> View</button>
-            </td>
-        </tr>
-    </tbody>
+  </div>
 
-
-</table>
-<br><br><br><br>
 </div>
-
