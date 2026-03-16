@@ -1,19 +1,166 @@
+/* PAGE BACKGROUND */
+
+body{
+    background:#f4f7fb;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/* HEADER */
+
+.header h1{
+    font-size:2.4rem;
+    font-weight:700;
+}
+
+.header p{
+    color:#64748b;
+    margin-top:5px;
+}
+
+/* SEARCH BAR */
+
+.search-section{
+    margin-top:25px;
+}
+
+.search-form{
+    display:flex;
+    gap:10px;
+}
+
+.search-form input{
+    flex:1;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    font-size:14px;
+}
+
+.search-form input:focus{
+    outline:none;
+    border-color:#3b82f6;
+}
+
+.search-form button{
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    background:linear-gradient(135deg,#3b82f6,#2563eb);
+    color:white;
+    cursor:pointer;
+}
+
+/* TABLE CONTAINER */
+
+.table-container{
+    margin-top:30px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    overflow:hidden;
+}
+
+/* TABLE */
+
+.employee-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.employee-table th{
+    background:#0f172a;
+    color:white;
+    text-align:left;
+    padding:14px;
+}
+
+.employee-table td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+}
+
+/* HOVER ROW */
+
+.employee-table tbody tr{
+    transition:0.2s;
+}
+
+.employee-table tbody tr:hover{
+    background:#f9fafb;
+}
+
+/* BADGES */
+
+.badge{
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.dept{
+    background:#e0f2fe;
+    color:#0369a1;
+}
+
+.role{
+    background:#dcfce7;
+    color:#166534;
+}
+
+/* ACTION BUTTONS */
+
+.actions{
+    display:flex;
+    gap:8px;
+}
+
 .btn{
-    margin-right: 20px;
-    box-shadow: 10 4px 8px rgba(0, 0, 0, 0.1);
-
+    border:none;
+    padding:6px 10px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:13px;
 }
 
-.inline{
-    display: flex;
+.update{
+    background:#fbbf24;
 }
 
-
-.inline .btn{
-    margin-left: 1rem;
+.delete{
+    background:#ef4444;
+    color:white;
 }
 
-input{
-    border: 1px solid #000000;
-    box-shadow: 10 4px 8px rgba(0, 0, 0, 0.1);
+.view{
+    background:#22c55e;
+    color:white;
+}
+
+/* BUTTON HOVER */
+
+.btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+.search-form{
+flex-direction:column;
+}
+
+.actions{
+flex-direction:column;
+}
+
 }
