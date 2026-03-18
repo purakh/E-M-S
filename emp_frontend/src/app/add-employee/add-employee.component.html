@@ -1,188 +1,169 @@
-<br><br>
-<br><br>
-<!-- <a routerLink="/show-all-employees" class="btn btn-primary">Go somewhere</a> -->
-<div class="container-sm">
-    <div class="col-md-6 offset-md-3  container-sm ">
-        <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="row g-3 form-container  container-sm">
+<div class="employee-form-page">
+  <div class="employee-form-wrapper">
 
-            <div class="form-group col-md-6">
-                <label><b>First Name</b></label>
-                <input type="text" class="form-control" id="fname" [(ngModel)]="employee.fname" name="fname" required
-                    minlength="3" #fname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fname.errors }" />
-
-                <div *ngIf="f.submitted && fname.errors" class="invalid-feedback">
-                    <div *ngIf="fname.errors['required']">First name is required</div>
-                    <div *ngIf="fname.errors['minlength']">First Name minimum 3 characters are required!!!</div>
-                </div>
-
-
-
-            </div>
-
-
-
-            <div class="form-group col-md-6">
-                <label><b>Last Name</b></label>
-                <input type="text" class="form-control" id="lname" [(ngModel)]="employee.lname" required name="lname"
-                    #lname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lname.errors }">
-
-                <div *ngIf="f.submitted && lname.errors" class="invalid-feedback">
-                    <div *ngIf="lname.errors['required']">Last name is required</div>
-                    
-                </div>
-
-
-            </div>
-
-            <br><br>
-
-            <div class="form-group">
-                <label><b>Email Id</b></label>
-                <input type="email" class="form-control" id="email" [(ngModel)]="employee.email" name="email"
-                required email #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" />
-                <div *ngIf="f.submitted && email.errors" class="invalid-feedback">
-                    <div *ngIf="email.errors['required']">Email is required</div>
-                    <div *ngIf="email.invalid">Invalid email format</div>
-                </div>
-
-
-
-            </div>
-
-
-
-
-            <br><br>
-
-            <div class="form-group col-md-6">
-                <label class="form-label"><b>Department</b></label>
-                <select id="department" class="form-select" [(ngModel)]="employee.department" name="department" required
-                    #department="ngModel" [ngClass]="{ 'is-invalid': f.submitted && department.errors }">
-
-
-                    <div *ngIf="f.submitted && department.errors" class="invalid-feedback">
-                        <div *ngIf="department.errors['required']">Department is required</div>
-                    </div>
-
-
-                    <option selected disabled value="">Choose..</option>
-                    <option>IT</option>
-                    <option>HR</option>
-                    <option>Finance</option>
-                    <option>Marketing</option>
-                </select>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label class="form-label"><b>Designation</b></label>
-                <select id="designation" class="form-select" [(ngModel)]="employee.designation" name="designation"
-                    required #designation="ngModel" [ngClass]="{ 'is-invalid': f.submitted && designation.errors }">
-
-
-                    <div *ngIf="f.submitted && designation.errors" class="invalid-feedback">
-                        <div *ngIf="designation.errors['required']">Designation is required</div>
-                    </div>
-                    <option selected disabled value="">Choose...</option>
-                    <option>Developer</option>
-                    <option>Manager</option>
-                    <option>Analyst</option>
-                    <option>Accountant</option>
-                    <option>System Analyst</option>
-                </select>
-            </div>
-
-            <br><br>
-
-            <div class="form-group col-md-6">
-                <label><b>Salary</b></label>
-                <input type="text" class="form-control" id="salary" [(ngModel)]="employee.salary" name="salary" 
-                required pattern="^[1-9]\d{2,}$"
-                    #salary="ngModel" [ngClass]="{ 'is-invalid': f.submitted && salary.errors }" />
-
-                <div *ngIf="f.submitted && salary.errors" class="invalid-feedback">
-                    <div *ngIf="salary.errors['required']">Salary is required</div>
-                    <div *ngIf="salary.invalid">
-                        Salary must be a number, more than 3 digits, and not starting with zero.
-                    </div>
-                </div>
-
-
-            </div>
-
-
-
-            <div class=" form-group col-md-6">
-
-               
-
-
-                <!-- <button (click)="toggleData()"> Choose Date </button>
-                <div *ngIf = "showVariable">
-                <ngb-datepicker #dp name = "joiningDate"[(ngModel)]="model" (navigate)="date = $event.next" />
-                <pre>Month: {{ date.month }}.{{ date.year }}</pre>
-                <pre>Model: {{ model | json }}</pre>
-
-            </div> -->
-
-
-            
-
-                
-                     <label><b>Joining Date</b></label>
-                    <input type="date" class="form-control" id="joiningDate" [(ngModel)]="employee.joiningDate"
-                        name="joiningDate" required #joiningDate="ngModel" 
-                        [ngClass]="{ 'is-invalid': f.submitted && joiningDate.errors }">
-                        
-                    <div *ngIf="f.submitted && joiningDate.errors" class="invalid-feedback">
-                        <div *ngIf="joiningDate.errors['required']">Joining Date is required</div>
-                    </div> 
-
-
-                    <!-- <mat-form-field>
-                        <label><b>Joining Date</b></label>
-                        <input matInput [matDatepicker]="picker"  class="form-control" id="joiningDate" [(ngModel)]="employee.joiningDate"
-                            name="joiningDate" required #joiningDate="ngModel"
-                            [ngClass]="{ 'is-invalid': f.submitted && joiningDate.errors }">
-        
-                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-        
-                        <div *ngIf="f.submitted && joiningDate.errors" class="invalid-feedback">
-                            <div *ngIf="joiningDate.errors['required']">Joining Date is required</div>
-                        </div>
-        
-                    </mat-form-field> -->
-
-           
-           
-           
-           
-           
-           
-            </div>
-
-
-            <br><br><br><br>
-
-
-            <div class="form-group col-md-6">
-                <button class="btn btn-success full-width-button" type="submit" id="reg" [disabled]="">Submit</button>
-            </div>
-
-            <div class="col-md-6">
-                <button type="button" (click)="goToEmployeeList()"
-                    class="btn btn-danger full-width-button">Cancel</button>
-            </div>
-
-        </form>
-
-
-        <!-- 
-<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next" />
-<pre>Month: {{ date.month }}.{{ date.year }}</pre>
-<pre>Model: {{ model | json }}</pre>
-
-<br><br><br><br> -->
-
+    <div class="form-header">
+      <div>
+        <h1>Employee Details</h1>
+        <p>Create a new employee record with validated information</p>
+      </div>
     </div>
+
+    <div class="form-card">
+      <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="employee-form">
+
+        <div class="form-grid">
+
+          <div class="form-field">
+            <label for="fname">First Name</label>
+            <input
+              type="text"
+              class="modern-input"
+              id="fname"
+              [(ngModel)]="employee.fname"
+              name="fname"
+              required
+              minlength="3"
+              #fname="ngModel"
+              [ngClass]="{ 'input-error': f.submitted && fname.errors }"
+              placeholder="Enter first name"
+            />
+            <div *ngIf="f.submitted && fname.errors" class="error-text">
+              <div *ngIf="fname.errors['required']">First name is required</div>
+              <div *ngIf="fname.errors['minlength']">Minimum 3 characters required</div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="lname">Last Name</label>
+            <input
+              type="text"
+              class="modern-input"
+              id="lname"
+              [(ngModel)]="employee.lname"
+              name="lname"
+              required
+              #lname="ngModel"
+              [ngClass]="{ 'input-error': f.submitted && lname.errors }"
+              placeholder="Enter last name"
+            />
+            <div *ngIf="f.submitted && lname.errors" class="error-text">
+              <div *ngIf="lname.errors['required']">Last name is required</div>
+            </div>
+          </div>
+
+          <div class="form-field full-width">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              class="modern-input"
+              id="email"
+              [(ngModel)]="employee.email"
+              name="email"
+              required
+              email
+              #email="ngModel"
+              [ngClass]="{ 'input-error': f.submitted && email.invalid }"
+              placeholder="Enter email address"
+            />
+            <div *ngIf="f.submitted && email.errors" class="error-text">
+              <div *ngIf="email.errors['required']">Email is required</div>
+              <div *ngIf="email.invalid">Enter a valid email address</div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="department">Department</label>
+            <select
+              id="department"
+              class="modern-input"
+              [(ngModel)]="employee.department"
+              name="department"
+              required
+              #department="ngModel"
+              [ngClass]="{ 'input-error': f.submitted && department.errors }"
+            >
+              <option value="" disabled selected>Choose department</option>
+              <option>IT</option>
+              <option>HR</option>
+              <option>Finance</option>
+              <option>Marketing</option>
+            </select>
+            <div *ngIf="f.submitted && department.errors" class="error-text">
+              <div *ngIf="department.errors['required']">Department is required</div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="designation">Designation</label>
+            <select
+              id="designation"
+              class="modern-input"
+              [(ngModel)]="employee.designation"
+              name="designation"
+              required
+              #designation="ngModel"
+              [ngClass]="{ 'input-error': f.submitted && designation.errors }"
+            >
+              <option value="" disabled selected>Choose designation</option>
+              <option>Developer</option>
+              <option>Manager</option>
+              <option>Analyst</option>
+              <option>Accountant</option>
+              <option>System Analyst</option>
+            </select>
+            <div *ngIf="f.submitted && designation.errors" class="error-text">
+              <div *ngIf="designation.errors['required']">Designation is required</div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="salary">Salary</label>
+            <input
+              type="text"
+              class="modern-input"
+              id="salary"
+              [(ngModel)]="employee.salary"
+              name="salary"
+              required
+              pattern="^[1-9]\\d{2,}$"
+              #salary="ngModel"
+              [ngClass]="{ 'input-error': f.submitted && salary.errors }"
+              placeholder="Enter salary"
+            />
+            <div *ngIf="f.submitted && salary.errors" class="error-text">
+              <div *ngIf="salary.errors['required']">Salary is required</div>
+              <div *ngIf="salary.invalid">
+                Salary must be numeric, more than 3 digits, and must not start with zero.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="joiningDate">Joining Date</label>
+            <input
+              type="date"
+              class="modern-input"
+              id="joiningDate"
+              [(ngModel)]="employee.joiningDate"
+              name="joiningDate"
+              required
+              #joiningDate="ngModel"
+              [ngClass]="{ 'input-error': f.submitted && joiningDate.errors }"
+            />
+            <div *ngIf="f.submitted && joiningDate.errors" class="error-text">
+              <div *ngIf="joiningDate.errors['required']">Joining date is required</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-actions">
+          <button class="primary-btn" type="submit">Submit</button>
+          <button type="button" (click)="goToEmployeeList()" class="secondary-btn">Cancel</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
 </div>
