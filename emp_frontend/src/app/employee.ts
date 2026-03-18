@@ -16,7 +16,7 @@ export class Employee {
     // this.id = 0; 
     // // this.fname="";
     // this.lname="";
-    this.email="@gmail.com";
+    this.email="";
     this.salary=0;
     this.department="";
     this.designation="";
