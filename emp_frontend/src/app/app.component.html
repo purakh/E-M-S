@@ -1,46 +1,72 @@
-<nav class="navbar navbar-expand-sm border-bottom border-body" data-bs-theme="dark">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a routerLink="home" routerLinkActive="active" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item">
-            <a routerLink="show-all-employees" routerLinkActive="active" class="nav-link">Employee List</a>
-        </li>
-        <li class="nav-item">
-            <a routerLink="add-employee" routerLinkActive="active" class="nav-link">Add Employee</a>
-        </li>
-    </ul>
-    <ul class="navbar-nav ms-auto">
-        <li class="nav-item" style="margin-right: 4rem;">
-            <a routerLink="login" routerLinkActive="active" class="nav-link">Admin Login 
-                <span  class="logout-option" id="logoutOption"><a routerLink="" routerLinkActive="active" class="nav-link">Logout</a></span>
-            </a>
-        </li>
-    </ul>
-</nav>
-<script>
-        // Add an event listener to the link element
-        document.getElementById('loginLink').addEventListener('mouseover', function () {
-            // Change the content of the logout option
-            document.getElementById('logoutOption').innerText = 'Logout Option';
-        });
+<div class="app-shell">
 
-        // Reset the content when the mouse leaves the link
-        document.getElementById('loginLink').addEventListener('mouseout', function () {
-            document.getElementById('logoutOption').innerText = 'Logout';
-        });
-    </script>
+  <header class="topbar">
+    <div class="topbar-inner">
 
+      <a routerLink="/home" class="brand">
+        <span class="brand-mark">EMS</span>
+        <span class="brand-text">Employee Management System</span>
+      </a>
 
-<!-- <div class="container"> -->
+      <button
+        class="menu-toggle"
+        type="button"
+        (click)="isMenuOpen = !isMenuOpen"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <router-outlet></router-outlet>
-<!-- </div> -->
+      <nav class="main-nav" [class.open]="isMenuOpen">
+        <a routerLink="/home" routerLinkActive="active-link" class="nav-link" (click)="isMenuOpen = false">Home</a>
+        <a routerLink="/show-all-employees" routerLinkActive="active-link" class="nav-link" (click)="isMenuOpen = false">Employees</a>
+        <a routerLink="/add-employee" routerLinkActive="active-link" class="nav-link" (click)="isMenuOpen = false">Add Employee</a>
 
+        <div class="mobile-actions">
+          <a *ngIf="!isLoggedIn"
+             routerLink="/login"
+             class="btn btn-outline"
+             (click)="isMenuOpen = false">
+            Admin Login
+          </a>
 
-<footer class = "footer">
-    <div class = "container">
-        <span>Employee Management System</span>
+          <button *ngIf="isLoggedIn"
+                  type="button"
+                  (click)="logout()"
+                  class="btn btn-primary">
+            Logout
+          </button>
+        </div>
+      </nav>
+
+      <div class="topbar-actions desktop-actions">
+        <a *ngIf="!isLoggedIn"
+           routerLink="/login"
+           class="btn btn-outline">
+          Admin Login
+        </a>
+
+        <button *ngIf="isLoggedIn"
+                type="button"
+                (click)="logout()"
+                class="btn btn-primary">
+          Logout
+        </button>
+      </div>
+
     </div>
-</footer>
+  </header>
 
+  <main class="page-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Employee Management System</p>
+    </div>
+  </footer>
+
+</div>
