@@ -1,67 +1,82 @@
+<div class="details-page">
+  <div class="details-card">
 
-<br>
-
-<div class="container">
-
-<h3>Employee Details</h3>
-<br>
-<div class="box">
-    
-    <div>
-
-      <img src="../assets/download.jpg">
+    <div class="details-header">
+      <div>
+        <p class="eyebrow">Employee Profile</p>
+        <!-- <h2>Employee Details</h2> -->
+        
+      </div>
     </div>
-<div >
-    <table  class=" table table-striped  border-dark  ">
-        <thead class=" table-dark">        
-        <tr>
-          <th  >Attribute</th>
-          <th  >Value</th>
-        </tr>
 
-    </thead>
+    <div class="details-content">
 
-    <tbody>
-    <tr>
-          <td><b>Id</b></td>
-          <td>{{employee.id}}</td>
-        </tr>
-        <tr>
-          <td><b>First Name</b></td>
-          <td>{{employee.fname}}</td>
-        </tr>
-        <tr>
-          <td><b>Last Name</b></td>
-          <td>{{employee.lname}}</td>
-        </tr>
-        <tr>
-          <td><b>Email</b></td>
-          <td>{{employee.email}}</td>
-        </tr>
-        <tr>
-          <td><b>Salary</b></td>
-          <td>{{employee.salary}}</td>
-        </tr>
-        <tr>
-          <td><b>Department</b></td>
-          <td>{{employee.department}}</td>
-        </tr>
-        <tr>
-          <td><b>Designation</b></td>
-          <td>{{employee.designation}}</td>
-        </tr>
-        <tr>
-          <td><b>Joining Date</b></td>
-          <td>{{employee.joiningDate}}</td>
-        </tr>
+      <div class="profile-panel">
+        <div class="avatar-wrap">
+          <img src="../assets/download.jpg" alt="Employee profile">
+        </div>
 
-    </tbody>    
-      </table>
+        <h3>{{employee.fname}} {{employee.lname}}</h3>
+        <p class="role-text">{{employee.designation}}</p>
 
-      <a routerLink="/updating-by-id/{{employee.id}}" id="btn1"class="btn btn-secondary">Update Details</a>
-      <a routerLink="/show-all-employees" id="btn2" class="btn btn-danger">Back</a>
-</div>
-    
-</div>
+        <div class="mini-badges">
+          <span class="badge dept">{{employee.department}}</span>
+          <span class="badge id-badge">ID #{{employee.id}}</span>
+        </div>
+      </div>
 
+      <div class="info-panel">
+        <div class="info-grid">
+
+          <div class="info-item">
+            <span class="label">Employee ID</span>
+            <span class="value">{{employee.id}}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">First Name</span>
+            <span class="value">{{employee.fname}}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Last Name</span>
+            <span class="value">{{employee.lname}}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Email</span>
+            <span class="value">{{employee.email}}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Salary</span>
+            <span class="value">₹ {{employee.salary}}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Department</span>
+            <span class="value">{{employee.department}}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Designation</span>
+            <span class="value">{{employee.designation}}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Joining Date</span>
+            <span class="value">{{employee.joiningDate}}</span>
+          </div>
+
+        </div>
+
+        <div class="action-row">
+          <a [routerLink]="['/updating-by-id', employee.id]" class="primary-btn">Update Details</a>
+          <a routerLink="/show-all-employees" class="secondary-btn">Back</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
